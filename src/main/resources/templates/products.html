@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(products)}">
+        <h2>Product List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Mode</th>
+                <th>Status</th>
+                <th>User</th>
+                <th>Ratified</th>
+                <th>Authorized</th>
+                <th>Department</th>
+                <th>Fetch</th>
+                <th>No_of_items</th>
+                <th>Gate Pass Number</th>
+                <th>Gate Pass Date</th>
+                <th>Transaction_Type</th>
+                <th>Last_no</th>
+                <th>From_unit</th>
+                <th>Vehicle no</th>
+                <th>Last no</th>
+                <th>PackageType</th>
+                <th>MaterialName</th>
+                <th>Purpose</th>
+                
+                <th>GrossWt</th>
+                <th>NetWt</th>
+                
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <tr th:each="product : ${products}">
+                <td th:text="${product.id}"><a href="/product/${product.id}">Id</a></td>
+                <td th:text="${product.mode}">Mode</td>
+                <td th:text="${product.status}">Status</td>
+                <td th:text="${product.user}">User</td>
+                <td th:text="${product.rati}">Ratified</td>
+                <td th:text="${product.autho}">Authorized</td>
+                <td th:text="${product.vehicle_no}">VehicleNo</td>
+                <td th:text="${product.last_no}">LastNo</td>
+                <td th:text="${product.trans_type}">Trans_type</td>
+                <td th:text="${product.dept}">Department</td>
+                <td th:text="${product.fetch}">Fetch</td>
+                <td th:text="${product.no_of_items}">No_of_items</td>
+                <td th:text="${product.gp_no}">Gate Pass Number</td>
+                <td th:text="${product.gp_date}">Gate Pass Date</td>
+                 
+                <td th:text="${product.packagetype}">PackageType</td>
+                <td th:text="${product.materialname}">MaterialName</td>
+                <td th:text="${product.grosswt}">GrossWt</td>
+                <td th:text="${product.netwt}">NetWt</td>
+                <td th:text="${product.purpose}">Purpose</td>
+                
+           
+                <td><a th:href="${'/product/' + product.id}">View</a></td>
+                <td><a th:href="${'/product/edit/' + product.id}">Edit</a></td>
+                <td><a th:href="${'/product/delete/' + product.id}">Delete</a></td></tr>
+              
+        </table>
+
+    </div>
+
+    <!-- Pagination Bar -->
+    <div th:fragment='paginationbar'>
+        <div>
+            <ul class='pagination pagination-centered'>
+                <li th:class="${page.firstPage}?'disabled':''">
+                <span th:if='${page.firstPage}'> First</span>
+                <a th:if='${not page.firstPage}' th:href='@{${page.url}(page=0,size=${page.size})}'> First</a>
+                </li>
+                <li th:class="${page.hasPreviousPage}? '' : 'disabled'">
+                <span th:if='${not page.hasPreviousPage}'>«</span>
+                <a th:if='${page.hasPreviousPage}' th:href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'>«</a>
+                </li>
+                <li th:each='item : ${page.items}' th:class="${item.current}? 'active' : ''">
+                <span th:if='${item.current}' th:text='${item.number}'>1</span>
+                <a th:if='${not item.current}' th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span th:text='${item.number}'>1</span></a>
+                </li>
+                <li th:class="${page.hasNextPage}? '' : 'disabled'">
+                <span th:if='${not page.hasNextPage}'>»</span>
+                <a th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}' title='Go to next page'>»</a>
+                </li>
+                <li th:class="${page.lastPage}? 'disabled' : ''">
+                <span th:if='${page.lastPage}'>Last </span>
+                <a th:if='${not page.lastPage}' th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>Last</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

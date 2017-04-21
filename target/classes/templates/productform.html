@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head lang="en">
+      <title>Spring Framework Guru</title>
+      <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+   </head>
+   <body>
+      <div class="container">
+         <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+         <h2>Product Details</h2>
+         <div>
+            <form class="form-horizontal" th:object="${product}" th:action="@{/product}" method="post">
+               <input type="hidden" th:field="*{id}"/>
+               <input type="hidden" th:field="*{version}"/>
+               <table class="table table-striped">
+                  <tr>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Mode:</label>
+                           <select  th:field="*{mode}">
+                              <option value="Add">Add</option>
+                              <option value="Update">Update</option>
+                              <option value="view">View</option>
+                           </select>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">status:    </label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{status}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">G_status:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{status}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">user:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{user}"/>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">prepared:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{prepared}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">from_unit:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{from_unit}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Ratified:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{rati}"/>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Authorization:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:filed="*{autho}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Gate pass Date:</label>
+                           <div class="col-sm-10">
+                              <input type="date" value="java.util.GregorianCalendar[time=1454108400000,areFieldsSet=true,areAllFieldsSet=true,lenient=true,zone=sun.util.calendar.ZoneInfo[id=&quot;Europe/Madrid&quot;,offset=3600000,dstSavings=3600000,useDaylight=true,transitions=165,lastRule=java.util.SimpleTimeZone[id=Europe/Madrid,offset=3600000,dstSavings=3600000,useDaylight=true,startYear=0,startMode=2,startMonth=2,startDay=-1,startDayOfWeek=1,startTime=3600000,startTimeMode=2,endMode=2,endMonth=9,endDay=-1,endDayOfWeek=1,endTime=3600000,endTimeMode=2]],firstDayOfWeek=2,minimalDaysInFirstWeek=4,ERA=1,YEAR=2016,MONTH=0,WEEK_OF_YEAR=4,WEEK_OF_MONTH=4,DAY_OF_MONTH=30,DAY_OF_YEAR=30,DAY_OF_WEEK=7,DAY_OF_WEEK_IN_MONTH=5,AM_PM=0,HOUR=0,HOUR_OF_DAY=0,MINUTE=0,SECOND=0,MILLISECOND=0,ZONE_OFFSET=3600000,DST_OFFSET=0]"
+                                 class="form-control" th:field="*{gp_date}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Gate pass number:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{gp_no}"/>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">From unit:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{from_unit}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Department:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control"  th:value="${user.dept}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <!--   <td><div class="form-group">
+                        <label class="col-sm-6 control-label" th:for="*{#ids.prev(fetch)}" th:text="#{*{fetch}}">Fetch:</label>
+                        <div class="col-sm-6">
+                            <input type="checkbox" class="form-control" th:field="*{fetch}" th:value="*{fetches.fetchesId}"/>
+                        </div>
+                        </div></td> -->
+                     <td>
+                        <button>Fetch</button>
+                        <input type="radio" th:name="*{fetch}" th:field="*{G_status}" value="return" />Return
+                        <input type="radio" th:name="*{fetch}" th:field="*{G_status}" value="non-return" />Non-Return
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Due Date:</label>
+                           <div class="col-sm-10">
+                              <input type="date" class="form-control" th:field="*{due_date}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">NO Of Items:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{no_of_items}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Vehicle no:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{no_of_items}"/>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Last_no:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{last_no}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Trans_type:</label>
+                           <div class="col-sm-10">
+                             <input type="text" class="form-control" th:field="*{Trans_type}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Transport Name:</label>
+                           <div class="col-sm-10">
+                              <select>
+     								<option value="0">Select</option>
+     								<option th:each="tranportname : ${allTransportnames}"
+             							th:value="${tranportname.id}"
+             							th:text="${tranportname.transname}">
+     								</option>
+							 </select>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">PackageType:</label>
+                           <div class="col-sm-10">
+                             <!--  <input type="text" class="form-control" th:field="*{packagetype}"/>  -->
+                              <select>
+     								<option value="0">Select</option>
+     								<option th:each="packagetype : ${allPackagetypes}"
+             							th:value="${packagetype.id}"
+             							th:text="${packagetype.packagetype}">
+     								</option>
+							</select>
+                           </div>
+                           
+                           
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">MaterialName:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{materialname}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">GrossWt:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{grosswt}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">NetWt:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{netwt}"/>
+                           </div>
+                        </div>
+                     </td>
+                     <td>
+                        <div class="form-group">
+                           <label class="col-sm-6 control-label">Purpose:</label>
+                           <div class="col-sm-10">
+                              <input type="text" class="form-control" th:field="*{purpose}"/>
+                           </div>
+                        </div>
+                     </td>
+                  </tr>
+               </table>
+               <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

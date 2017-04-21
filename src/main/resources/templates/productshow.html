@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Spring Framework Guru</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div  class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h2>Product Details</h2>
+    
+
+        <div>
+        <form class="form-horizontal">
+        
+<table class="table table-striped">
+            
+             <tr> <td>  <div class="form-group">
+             
+  <label class="col-sm-2 control-label">Product Id:</label>
+  <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.id}">Product Id</p></div>
+                        </div></td>
+                
+                  
+                 <td>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Mode:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.mode}">mode</p>
+                    </div>
+                </div></td>
+                <td>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Status:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.status}">status</p>
+                    </div>
+                </div></td></tr>
+                <tr>
+               <td> <div class="form-group">
+                    <label class="col-sm-2 control-label">User:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.user}">USER</p>
+                    </div>
+                </div></td>
+                <td><div class="form-group">
+                    <label class="col-sm-2 control-label">Prepared:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.prepared}">Prepared</p>
+                    </div>
+                </div></td>
+               <td> <div class="form-group">
+                    <label class="col-sm-2 control-label">Ratified:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.rati}">Ratified</p>
+                    </div>
+                </div></td></tr>
+                <tr>
+                <td>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Gate Pass number:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.gp_no}">Gate Pass number</p>
+                    </div>
+                </div></td>
+                <td>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Gate pass date:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.gp_date}">GatePassDate </p>
+                    </div>
+                </div></td>
+               <td> <div class="form-group">
+                    <label class="col-sm-2 control-label">fetch:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.fetch}">Fetch</p>
+                    </div>
+                </div></td></tr>
+                <tr>
+                <td>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Due_Date:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.due_date}">Due_date</p>
+                    </div>
+                </div></td>
+                <td>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Department:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.dept}">Department</p>
+                    </div>
+                </div></td>
+                <td>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Last_no:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.last_no}">Last_no</p>
+                    </div>
+                </div></td></tr>
+                <tr><td>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Transaction_type:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.trans_type}">Trans_Type</p>
+                    </div>
+                </div>
+                </td>
+              <td>  <div class="form-group">
+                    <label class="col-sm-2 control-label">vehicle_no:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.vehicle_no}">Vehicle_no</p>
+                    </div>
+                </div></td>
+               <td> <div class="form-group">
+                    <label class="col-sm-2 control-label">No_of_items:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.no_of_items}">No_of_items</p>
+                    </div>
+                </div></td></tr>
+                
+                
+               <tr> 
+                <td> <div class="form-group">
+                    <label class="col-sm-2 control-label">PackageType:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.packagetype}">PackageType</p>
+                    </div>
+                </div></td>
+                <td> <div class="form-group">
+                    <label class="col-sm-2 control-label">MaterialName:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.materialname}">MaterialName</p>
+                    </div>
+                </div></td>
+                <td> <div class="form-group">
+                    <label class="col-sm-2 control-label">GrossWt:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.grosswt}">GrossWt</p>
+                    </div>
+                </div></td>
+                <td> <div class="form-group">
+                    <label class="col-sm-2 control-label">Purpose:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.purpose}">Purpose</p>
+                    </div>
+                </div></td>
+                <td> <div class="form-group">
+                    <label class="col-sm-2 control-label">NetWt:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${product.netwt}">NetWt</p>
+                    </div>
+                </div></td></tr>
+ </table>
+            </form>
+    </div>
+
+               
+                </div>
+</body>
+</html>
